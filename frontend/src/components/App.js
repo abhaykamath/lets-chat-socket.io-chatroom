@@ -1,7 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import { io } from "socket.io-client";
 
-const socket = io("http://localhost:4000");
+// const socket = io("http://localhost:4000");
+const socket = io("https://letschat-backend-yqwa.onrender.com");
 
 function App() {
   const [newMessage, setNewMessage] = useState("");
@@ -32,8 +33,10 @@ function App() {
   return (
     <div>
       <h1>
-        Let's Talk <img src="./favicon.png"></img> - A chatroom made with
-        socket.io
+        <div>
+          Let's Talk <img src="./favicon.png"></img> - A chatroom made with
+          socket.io - by M Abhay Kamath
+        </div>
       </h1>
       <div className="chat-container">
         <form

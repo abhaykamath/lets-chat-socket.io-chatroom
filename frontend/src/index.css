@@ -52,6 +52,12 @@ h1 {
   padding: 0.25rem 0.5rem;
   background-color: #25d366;
   max-width: 80%;
+  display: inline-block; /* Display messages inline */
+  overflow: hidden; /* Hide overflow content */
+  white-space: nowrap; /* Prevent text from wrapping */
+  transform-origin: left center; /* Set the transformation origin to the right */
+  opacity: 0; /* Initially hide the message */
+  animation: growMessage 0.4s ease-out forwards; /* Apply the animation */
 }
 
 ::-webkit-scrollbar {
@@ -78,4 +84,51 @@ h1 {
 input,
 button {
   box-shadow: none !important;
+}
+
+@keyframes growMessage {
+  0% {
+    transform: scaleX(0); /* Start with no width */
+    opacity: 0; /* Start with no opacity */
+  }
+  30% {
+    transform: scaleX(1.1); /* Grow to 110% width */
+    opacity: 1; /* Start becoming visible */
+  }
+  100% {
+    transform: scaleX(1); /* End with 100% width (original size) */
+    opacity: 1; /* Fully visible */
+  }
+}
+
+@media (max-width: 1000px) {
+  h1 {
+    height: 9vh;
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    margin: 0;
+    padding: 0.5rem;
+  }
+
+  .chat-container {
+    box-sizing: border-box;
+    width: 100%;
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    margin: 0;
+  }
+
+  form {
+    box-sizing: border-box;
+    height: 100%;
+  }
+
+  .messages-container {
+    height: 100%;
+    border-radius: 0;
+    height: 75vh;
+    margin-bottom: 0;
+  }
 }
