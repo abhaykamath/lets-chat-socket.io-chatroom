@@ -9,7 +9,6 @@ const io = socketIO(server, { cors: { origin: "*" } });
 io.on("connection", (socket) => {
   console.log("user connected");
   socket.on("client_msg", (msg) => {
-    console.log(msg);
     socket.broadcast.emit("server_msg", msg);
   });
 });

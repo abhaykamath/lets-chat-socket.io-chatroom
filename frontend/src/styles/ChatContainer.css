@@ -1,0 +1,79 @@
+.chat-container {
+  box-sizing: border-box;
+  width: 50vw;
+  margin: 2rem auto;
+}
+
+.messages-container {
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+  padding: 1rem 0.75rem;
+  overflow-y: auto;
+  margin-bottom: 0.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  background-color: #ece5dd;
+  font-size: 1rem;
+  height: 50vh;
+}
+
+.message {
+  display: flex;
+}
+
+.message span {
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  max-width: 80%;
+  display: inline-block; /* Display messages inline */
+  overflow: hidden; /* Hide overflow content */
+  /* white-space: nowrap; Prevent text from wrapping */
+  opacity: 0; /* Initially hide the message */
+  animation: growMessage 0.4s ease-out forwards; /* Apply the animation */
+}
+
+.timestamp {
+  font-size: 0.65rem;
+  opacity: 0.75;
+  text-align: right;
+  margin-top: 0.5rem;
+}
+
+.client {
+  background-color: #dcf8c6;
+  border-bottom-right-radius: 0 !important;
+  transform-origin: right center; /* Set the transformation origin to the right */
+}
+
+.server {
+  background-color: #fff;
+  border-bottom-left-radius: 0 !important;
+  transform-origin: left center; /* Set the transformation origin to the right */
+}
+
+@media (max-width: 700px) {
+  .chat-container {
+    box-sizing: border-box;
+    width: 100%;
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    margin: 0;
+    height: calc(100vh - 6.5rem);
+  }
+
+  form {
+    box-sizing: border-box;
+    height: 100%;
+  }
+
+  .messages-container {
+    border-radius: 0;
+    margin-bottom: 0;
+    height: calc(100% - 37.6px);
+  }
+}

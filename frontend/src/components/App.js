@@ -1,100 +1,25 @@
-import React, { useEffect, useRef, useState } from "react";
-import { io } from "socket.io-client";
-
-// const socket = io("http://localhost:4000");
-const socket = io("https://letschat-backend-yqwa.onrender.com");
+import React, { useState } from "react";
+import Footer from "./Footer";
+import Header from "./Header";
+import ChatContainer from "./ChatContainer";
+import Login from "./Login";
 
 function App() {
-  const [newMessage, setNewMessage] = useState("");
-  const [messages, setMessages] = useState([]);
+  const [loggedIn, setLoggedIn] = useState(false);
 
-  const messagesListRef = useRef(null);
-
-  function scrollToBottom() {
-    messagesListRef.current.scrollTop = messagesListRef.current.scrollHeight;
+  function logout() {
+    setLoggedIn(false);
   }
 
-  useEffect(() => {
-    socket.on("server_msg", (msg) => {
-      setMessages((messages) => [
-        ...messages,
-        { content: msg, user: "server" },
-      ]);
-    });
-    return () => {
-      socket.disconnect();
-    };
-  }, []);
-
-  useEffect(() => {
-    scrollToBottom();
-  }, [messages]);
+  function login() {
+    setLoggedIn(true);
+  }
 
   return (
     <div>
-      <h1>
-        <div>
-          Let's Talk <img src="./favicon.png"></img> - A chatroom made with
-          socket.io - by M Abhay Kamath
-        </div>
-      </h1>
-      <div className="chat-container">
-        <form
-          id="chat-form"
-          onSubmit={(e) => {
-            e.preventDefault();
-            if (newMessage !== "") {
-              setMessages((messages) => [
-                ...messages,
-                { content: newMessage, user: "client" },
-              ]);
-              socket.emit("client_msg", newMessage);
-              setNewMessage("");
-            }
-          }}
-        >
-          <div className="messages-container" ref={messagesListRef}>
-            {messages.map((msg, index) => {
-              return (
-                <div
-                  key={index}
-                  className="message"
-                  style={{
-                    justifyContent:
-                      msg.user === "client" ? "flex-end " : "flex-start",
-                  }}
-                >
-                  <span
-                    style={{
-                      backgroundColor:
-                        msg.user === "client" ? "#25d366" : "#fff",
-                      borderBottomRightRadius:
-                        msg.user === "client" ? "0" : "0.75rem",
-                      borderBottomLeftRadius:
-                        msg.user === "server" ? "0" : "0.75rem",
-                    }}
-                  >
-                    {msg.content}
-                  </span>
-                </div>
-              );
-            })}
-          </div>
-          <div className="input-group">
-            <input
-              className="form-control"
-              placeholder="Type your message here"
-              value={newMessage}
-              onChange={(e) => {
-                setNewMessage(e.target.value);
-              }}
-            ></input>
-            <button type="submit" className="btn btn-success">
-              send <i className="fa-solid fa-paper-plane"></i>
-            </button>
-          </div>
-        </form>
-      </div>
+      <Header loggedIn={loggedIn} logout={logout} />
+      {!loggedIn ? <Login login={login} /> : <ChatContainer />}
+      <Footer />
     </div>
   );
 }

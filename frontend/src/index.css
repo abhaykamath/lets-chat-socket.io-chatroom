@@ -8,58 +8,6 @@ body {
   background-color: #040d12;
 }
 
-h1 {
-  text-align: left;
-  padding: 0.75rem;
-  font-size: 1.25rem;
-  background-color: #075e54;
-  color: #fff;
-}
-
-.chat-container {
-  box-sizing: border-box;
-  width: 60vw;
-  border: 1px dashed #ccc;
-  border-radius: 0.5rem;
-  padding: 1rem;
-  margin: 2rem auto;
-}
-
-.messages-container {
-  box-sizing: border-box;
-  border: 1px solid #ccc;
-  border-radius: 0.25rem;
-  padding: 1rem 0.75rem;
-  height: 50vh;
-  overflow-y: auto;
-  margin-bottom: 0.25rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-  background-color: #faf1e4;
-  /* resize: both; */
-  font-size: 0.9rem;
-}
-
-.message {
-  display: flex;
-}
-
-.message span {
-  box-sizing: border-box;
-  border: 1px solid #ccc;
-  border-radius: 0.75rem;
-  padding: 0.25rem 0.5rem;
-  background-color: #25d366;
-  max-width: 80%;
-  display: inline-block; /* Display messages inline */
-  overflow: hidden; /* Hide overflow content */
-  white-space: nowrap; /* Prevent text from wrapping */
-  transform-origin: left center; /* Set the transformation origin to the right */
-  opacity: 0; /* Initially hide the message */
-  animation: growMessage 0.4s ease-out forwards; /* Apply the animation */
-}
-
 ::-webkit-scrollbar {
   width: 0.5rem;
 }
@@ -98,37 +46,5 @@ button {
   100% {
     transform: scaleX(1); /* End with 100% width (original size) */
     opacity: 1; /* Fully visible */
-  }
-}
-
-@media (max-width: 1000px) {
-  h1 {
-    height: 9vh;
-    display: flex;
-    align-items: center;
-    font-size: 1rem;
-    margin: 0;
-    padding: 0.5rem;
-  }
-
-  .chat-container {
-    box-sizing: border-box;
-    width: 100%;
-    border: none;
-    border-radius: 0;
-    padding: 0;
-    margin: 0;
-  }
-
-  form {
-    box-sizing: border-box;
-    height: 100%;
-  }
-
-  .messages-container {
-    height: 100%;
-    border-radius: 0;
-    height: 75vh;
-    margin-bottom: 0;
   }
 }
