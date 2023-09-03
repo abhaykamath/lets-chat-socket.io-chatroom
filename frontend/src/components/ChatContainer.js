@@ -6,7 +6,7 @@ import "../styles/ChatContainer.css";
 // const socket = io("http://localhost:4000");
 const socket = io("https://letschat-backend-yqwa.onrender.com");
 
-function ChatContainer() {
+function ChatContainer({ username }) {
   const [newMessage, setNewMessage] = useState("");
   const [messages, setMessages] = useState([]);
 
@@ -21,7 +21,8 @@ function ChatContainer() {
       setMessages((messages) => [
         ...messages,
         {
-          content: msg,
+          content: msg.newMessage,
+          sender: msg.sender,
           user: "server",
           timestamp: new Date().toLocaleString(),
         },
@@ -47,11 +48,12 @@ function ChatContainer() {
               ...messages,
               {
                 content: newMessage,
+                sender: username,
                 user: "client",
                 timestamp: new Date().toLocaleString(),
               },
             ]);
-            socket.emit("client_msg", newMessage);
+            socket.emit("client_msg", { sender: username, newMessage });
             setNewMessage("");
           }
         }}
@@ -68,6 +70,9 @@ function ChatContainer() {
                 }}
               >
                 <span className={msg.user}>
+                  <div className="text-danger sender">
+                    ~ {msg.sender === username ? "you" : msg.sender}
+                  </div>
                   <div>{msg.content}</div>
                   <div className="timestamp">{msg.timestamp}</div>
                 </span>

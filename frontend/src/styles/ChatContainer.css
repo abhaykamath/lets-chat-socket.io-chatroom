@@ -36,8 +36,12 @@
   animation: growMessage 0.4s ease-out forwards; /* Apply the animation */
 }
 
+.messages-container .sender {
+  font-size: 0.75rem;
+}
+
 .timestamp {
-  font-size: 0.65rem;
+  font-size: 0.6rem;
   opacity: 0.75;
   text-align: right;
   margin-top: 0.5rem;
