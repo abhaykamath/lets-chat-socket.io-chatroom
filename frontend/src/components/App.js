@@ -4,7 +4,8 @@ import Header from "./Header";
 import ChatContainer from "./ChatContainer";
 import Login from "./Login";
 
-const BASE_URL = "http://localhost:4000";
+// const BASE_URL = "http://localhost:4000";
+const BASE_URL = "https://letschat-backend-yqwa.onrender.com";
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(
