@@ -7,7 +7,7 @@ function Header({ loggedIn, logout, username }) {
       <div>
         Let's Talk <img src="./favicon.png"></img>
       </div>
-      <div>Welcome {username} to the chatroom !</div>
+      <div className="welcome-msg">Welcome {username} to the chatroom !</div>
       {loggedIn && (
         <button
           className="btn btn-danger"
