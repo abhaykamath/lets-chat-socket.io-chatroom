@@ -1,7 +1,7 @@
 .login-container {
   box-sizing: border-box;
   color: #fff;
-  margin-top: 20vh;
+  margin-top: 10vh;
 }
 
 .login-container form {
@@ -56,19 +56,19 @@ form h2 {
 }
 
 @media (max-width: 1440px) {
-  form {
+  .login-container form {
     width: 50vw;
   }
 }
 
 @media (max-width: 750px) {
-  form {
+  .login-container form {
     width: 60vw;
   }
 }
 
 @media (max-width: 550px) {
-  form {
+  .login-container form {
     width: 90vw;
   }
 }
