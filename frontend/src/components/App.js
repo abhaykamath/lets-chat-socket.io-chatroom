@@ -25,7 +25,7 @@ function App() {
     localStorage.setItem("letstalk-loggedIn", false);
     setUsername("");
     localStorage.setItem("letstalk-username", "");
-    location.reload(true);
+    window.location.reload(true);
   }
 
   async function login(name, password) {
