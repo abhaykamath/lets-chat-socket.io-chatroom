@@ -1,9 +1,12 @@
 import React, { useState } from "react";
+import { io } from "socket.io-client";
 import Footer from "./Footer";
 import Header from "./Header";
 import ChatContainer from "./ChatContainer";
 import Login from "./Login";
 
+// const socket = io("http://localhost:4000");
+const socket = io("https://letschat-backend-yqwa.onrender.com");
 // const BASE_URL = "http://localhost:4000";
 const BASE_URL = "https://letschat-backend-yqwa.onrender.com";
 
@@ -16,7 +19,8 @@ function App() {
   );
   const [loading, setLoading] = useState(false);
 
-  function logout() {
+  function logout(name) {
+    socket.emit("leave", name);
     setLoggedIn(false);
     localStorage.setItem("letstalk-loggedIn", false);
     setUsername("");
@@ -35,6 +39,7 @@ function App() {
     const data = await response.json();
     setLoading(false);
     if (data.message === "welcome") {
+      socket.emit("join", name);
       setLoggedIn(true);
       localStorage.setItem("letstalk-loggedIn", true);
       setUsername(name);
@@ -48,7 +53,7 @@ function App() {
       {!loggedIn ? (
         <Login login={login} loading={loading} />
       ) : (
-        <ChatContainer username={username} />
+        <ChatContainer socket={socket} username={username} />
       )}
       <Footer />
     </div>

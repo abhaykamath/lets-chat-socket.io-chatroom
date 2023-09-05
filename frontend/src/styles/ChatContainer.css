@@ -19,6 +19,41 @@
   height: 50vh;
 }
 
+.messages-container .loader-container {
+  box-sizing: border-box;
+  text-align: center;
+  padding: 0.5rem;
+}
+
+.messages-container .joined-message {
+  box-sizing: border-box;
+  border-radius: 0.25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.75rem;
+}
+
+.messages-container .joined-message span {
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  padding: 0.25rem 1rem;
+  border-radius: 2rem;
+}
+
+.messages-container .loader {
+  box-sizing: border-box;
+  display: inline-block;
+  border: 0.25rem solid #ccc;
+  border-top: 0.25rem solid #25d366;
+  border-right: 0.25rem solid #25d366;
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  animation: spin 0.75s linear infinite;
+  margin-left: 0.5rem;
+}
+
 .message {
   display: flex;
 }

@@ -12,7 +12,7 @@ function Header({ loggedIn, logout, username }) {
         <button
           className="btn btn-danger"
           onClick={() => {
-            logout();
+            logout(username);
           }}
         >
           <i className="fa-solid fa-arrow-left"></i> leave

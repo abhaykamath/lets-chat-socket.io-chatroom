@@ -36,9 +36,9 @@ form h2 {
 .login-container .loader {
   box-sizing: border-box;
   display: inline-block;
-  border: 0.25rem solid #f3f3f3; /* Light grey */
-  border-top: 0.25rem solid #25d366; /* Blue */
-  border-right: 0.25rem solid #25d366; /* Blue */
+  border: 0.25rem solid #f3f3f3;
+  border-top: 0.25rem solid #25d366;
+  border-right: 0.25rem solid #25d366;
   border-radius: 50%;
   width: 1.5rem;
   height: 1.5rem;

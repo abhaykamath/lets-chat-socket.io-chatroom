@@ -5,7 +5,11 @@
 }
 
 body {
-  background-color: #040d12;
+  /* background-color: #040d12; */
+  background: url('../public/wp.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
 }
 
 ::-webkit-scrollbar {
