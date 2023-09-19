@@ -51,7 +51,7 @@ function ChatContainer({ socket, username }) {
     setLoading(true);
     // const response = await fetch("http://localhost:4000/api/messages");
     const response = await fetch(
-      "https://letschat-backend-yqwa.onrender.com/api/messages"
+      "https://mychatapp-atvt.onrender.com/api/messages"
     );
     const messages_from_db = await response.json();
     setMessages(

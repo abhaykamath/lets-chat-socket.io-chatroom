@@ -6,9 +6,11 @@ import ChatContainer from "./ChatContainer";
 import Login from "./Login";
 
 // const socket = io("http://localhost:4000");
-const socket = io("https://letschat-backend-yqwa.onrender.com");
+// const socket = io("https://letschat-backend-yqwa.onrender.com");
+const socket = io("https://mychatapp-atvt.onrender.com");
 // const BASE_URL = "http://localhost:4000";
-const BASE_URL = "https://letschat-backend-yqwa.onrender.com";
+// const BASE_URL = "https://letschat-backend-yqwa.onrender.com";
+const BASE_URL = "https://mychatapp-atvt.onrender.com";
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(

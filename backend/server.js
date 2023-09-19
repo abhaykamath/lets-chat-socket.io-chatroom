@@ -25,7 +25,7 @@ mongoose
     app.post("/api/login", (req, res) => {
       try {
         const { name, password } = req.body;
-        if (name && password === "rvboys") {
+        if (name && password === "mobius") {
           res.json({ message: "welcome" });
         } else {
           res.status(401).json({ message: "imposter" });
